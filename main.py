@@ -8,23 +8,36 @@ word_list = ["aardvark", "baboon", "camel"]
 
 #TODO-3 - Check if the letter the user guessed (guess) is one of the letters in the chosen_word.
 chosen_word = random.choice(word_list)
-guess = input("pls guess a letter").lower()
+#guess = input("pls guess a letter").lower()
 lst =list(chosen_word)
 display = []
-for i in range(0,len(lst)):
-  if lst[i] == guess:
-    print(lst[i])
-  else:
-    print('_')
+#for i in range(0,len(lst)):
+#  if lst[i] == guess:
+#    print(lst[i])
+#  else:
+#    print('_')
 
-for i in range(0, len(lst)):
+for i in range(0, len(chosen_word)):
   display += "_"
 
-for i in range(0, len(lst)):
-  if lst[i] == guess:
-    display[i] = guess
-  
+a=len(chosen_word)
+while a > 0:
+  guess = input("pls guess a letter").lower()
+  for i in range(0, len(lst)):
+    if lst[i] == guess:
+      display[i] = guess
+  a-=1
 
+flag = 0
+for i in range(0, len(chosen_word)):
+  if display[i] == "_":
+    flag = 1
+
+
+if flag == 1:
+  print("You lost")
+else:
+  print("you won")
 
 
 
